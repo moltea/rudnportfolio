@@ -1,0 +1,73 @@
+.projectsSection {
+  padding: 100px 20px;
+  background-color: var(--background);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: var(--foreground) !important;
+  margin-bottom: 60px !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+}
+
+.projectCard {
+  background: var(--card-bg) !important;
+  border-radius: 16px !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+  
+  :global(.ant-card-body) {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &:hover {
+    transform: translateY(-8px);
+    background: var(--card-bg-hover) !important;
+    box-shadow: 0 12px 40px rgba(0, 201, 167, 0.15) !important;
+  }
+}
+
+.projectTitle {
+  color: var(--foreground) !important;
+  margin-bottom: 16px !important;
+  font-size: 1.4rem !important;
+}
+
+.projectDesc {
+  color: var(--text-muted) !important;
+  flex-grow: 1;
+  font-size: 1.05rem !important;
+  line-height: 1.6;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.techBadge {
+  font-size: 0.8rem;
+  color: var(--tag-color);
+  background: var(--tag-bg);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.cardActions {
+  display: flex;
+  gap: 12px;
+}

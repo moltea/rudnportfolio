@@ -1,0 +1,33 @@
+.toggleBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00c9a7, #3498db);
+    z-index: -1;
+    opacity: 0.5;
+  }
+}
+
+:global([data-theme='dark']) .toggleBtn {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  background: #1f1f22;
+}

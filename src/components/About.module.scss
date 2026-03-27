@@ -1,0 +1,61 @@
+.aboutSection {
+  padding: 100px 20px;
+  background-color: var(--background);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: var(--foreground) !important;
+  margin-bottom: 60px !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+}
+
+.aboutCard, .skillsCard {
+  background: var(--card-bg) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+
+  :global(.ant-card-body) {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px !important; /* standardize to a nice big padding */
+  }
+}
+
+.skillsCard {
+  :global(.ant-card-head) {
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 32px !important;
+  }
+}
+
+.aboutCard .text {
+  font-size: 1.1rem !important;
+  color: var(--text-muted) !important;
+  line-height: 1.6;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  font-size: 1rem !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  background: var(--tag-bg) !important;
+  color: var(--tag-color) !important;
+}

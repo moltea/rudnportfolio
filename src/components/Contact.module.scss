@@ -1,0 +1,66 @@
+.contactSection {
+  padding: 100px 20px;
+  background-color: var(--background);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: var(--foreground) !important;
+  margin-bottom: 60px !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+}
+
+.infoCard, .formCard {
+  background: var(--card-bg) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(10px);
+  height: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+}
+
+.cardTitle {
+  color: var(--foreground) !important;
+  margin-bottom: 24px !important;
+}
+
+.text {
+  color: var(--text-muted) !important;
+  font-size: 1.1rem;
+  margin-bottom: 32px !important;
+  line-height: 1.6;
+}
+
+.socialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #81ecec;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--foreground);
+  }
+}
+
+.formLabel {
+  color: var(--foreground) !important;
+}
+
+.submitBtn {
+  width: 100%;
+}
