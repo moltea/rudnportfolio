@@ -5,28 +5,26 @@ import { Typography, Row, Col, Card, Button } from "antd";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "motion/react";
-import styles from "./Projects.module.scss";
+import { useLanguage } from "@/components/LanguageContext";
+import styles from "@/styles/Projects.module.scss";
 
 const { Title, Paragraph } = Typography;
 
 const projectsData = [
   {
-    title: "E-Commerce Платформа",
-    description: "Полноценный интернет-магазин с корзиной, оплатой и панелью администратора.",
+    key: "p1",
     tech: ["Next.js", "TypeScript", "Ant Design", "Stripe", "Prisma"],
     codeLink: "https://github.com/vercel/commerce",
     liveLink: "https://demo.vercel.store/"
   },
   {
-    title: "Task Tracker",
-    description: "Канбан-доска для управления задачами с возможностью drag-and-drop.",
+    key: "p2",
     tech: ["React", "Redux Toolkit", "SCSS", "Firebase"],
     codeLink: "https://github.com/oldboyxx/jira_clone",
     liveLink: "https://jira.ivorreic.com/"
   },
   {
-    title: "3D Портфолио",
-    description: "Интерактивное веб-портфолио с WebGL и кастомными анимациями.",
+    key: "p3",
     tech: ["Three.js", "React Three Fiber", "Framer Motion"],
     codeLink: "https://github.com/pmndrs/react-three-fiber",
     liveLink: "https://react-three-fiber-demo.web.app/"
@@ -34,11 +32,13 @@ const projectsData = [
 ];
 
 export default function Projects() {
+  const { t } = useLanguage();
+
   return (
     <section id="projects" className={styles.projectsSection}>
       <div className={styles.container}>
         <Title level={2} className={styles.sectionTitle}>
-          Мои Проекты
+          {t("projects", "title")}
         </Title>
         <Row gutter={[32, 32]}>
           {projectsData.map((project, index) => (
@@ -52,22 +52,22 @@ export default function Projects() {
               >
                 <Card className={styles.projectCard} variant="borderless">
                   <Title level={4} className={styles.projectTitle}>
-                    {project.title}
+                    {t("projects", `${project.key}_title`)}
                   </Title>
                   <Paragraph className={styles.projectDesc}>
-                    {project.description}
+                    {t("projects", `${project.key}_desc`)}
                   </Paragraph>
                   <div className={styles.techStack}>
-                    {project.tech.map((t) => (
-                      <span key={t} className={styles.techBadge}>{t}</span>
+                    {project.tech.map((techItem) => (
+                      <span key={techItem} className={styles.techBadge}>{techItem}</span>
                     ))}
                   </div>
                   <div className={styles.cardActions}>
                     <Button type="primary" icon={<ExternalLink size={16} />} href={project.liveLink} target="_blank">
-                      Demo
+                      {t("projects", "demo")}
                     </Button>
                     <Button icon={<FaGithub size={16} />} href={project.codeLink} target="_blank">
-                      Code
+                      {t("projects", "code")}
                     </Button>
                   </div>
                 </Card>

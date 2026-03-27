@@ -2,8 +2,9 @@
 
 import React from "react";
 import { ConfigProvider, theme } from "antd";
-import { ThemeProvider, useTheme } from "./ThemeContext";
-import ThemeToggle from "./ThemeToggle";
+import { ThemeProvider, useTheme } from "@/components/ThemeContext";
+import { LanguageProvider } from "@/components/LanguageContext";
+import FloatingActions from "@/components/FloatingActions";
 
 function AntdConfig({ children }: { children: React.ReactNode }) {
   const { theme: currentTheme, mounted } = useTheme();
@@ -27,10 +28,12 @@ function AntdConfig({ children }: { children: React.ReactNode }) {
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
-      <AntdConfig>
-        {children}
-        <ThemeToggle />
-      </AntdConfig>
+      <LanguageProvider>
+        <AntdConfig>
+          {children}
+          <FloatingActions />
+        </AntdConfig>
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

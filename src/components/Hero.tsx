@@ -3,12 +3,15 @@
 import React from "react";
 import { Typography, Button } from "antd";
 import { motion } from "motion/react";
-import Canvas3D from "./Canvas3D";
-import styles from "./Hero.module.scss";
+import { useLanguage } from "@/components/LanguageContext";
+import Canvas3D from "@/components/Canvas3D";
+import styles from "@/styles/Hero.module.scss";
 
 const { Title, Paragraph } = Typography;
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className={styles.heroSection}>
       <div className={styles.canvasContainer}>
@@ -21,17 +24,17 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Title level={1} className={styles.title}>
-            Создаю <span className={styles.accent}>современные</span> веб-приложения
+            {t("hero", "greeting")} <span className={styles.accent}>MOLTEA</span>
           </Title>
           <Paragraph className={styles.subtitle}>
-            Fullstack Разработчик | Решения высшего качества
+            {t("hero", "role")}
           </Paragraph>
           <div className={styles.actions}>
             <Button type="primary" size="large" shape="round" href="#projects">
-              Смотреть проекты
+              {t("hero", "buttonWork")}
             </Button>
             <Button size="large" shape="round" type="default" href="#contact">
-              Связаться со мной
+              {t("hero", "buttonContact")}
             </Button>
           </div>
         </motion.div>

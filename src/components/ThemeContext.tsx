@@ -22,8 +22,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const sysTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
     
     const initialTheme = storedTheme || sysTheme;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(initialTheme);
     document.documentElement.setAttribute("data-theme", initialTheme);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 

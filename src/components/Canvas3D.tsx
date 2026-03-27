@@ -4,9 +4,9 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Sphere, MeshDistortMaterial } from "@react-three/drei";
 import { useRef, useMemo, useEffect } from "react";
 import * as THREE from "three";
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "@/components/ThemeContext";
 
-function SmallBlob({ position, scale, speedFactor, color, offset }: any) {
+function SmallBlob({ position, scale, speedFactor, color, offset }: { position: [number, number, number], scale: number, speedFactor: number, color: string, offset: number }) {
   const meshRef = useRef<THREE.Mesh>(null);
   const time = useRef(offset);
 
@@ -112,7 +112,7 @@ function AnimatedSphere() {
 export default function Canvas3D() {
   const { theme, mounted } = useTheme();
   
-  const blobs = useMemo(() => [
+  const blobs: Array<{ position: [number, number, number], scale: number, speedFactor: number, offset: number, colorLight: string, colorDark: string }> = useMemo(() => [
     { position: [-4, 2, -2], scale: 0.6, speedFactor: 1.2, offset: 0, colorLight: "#facc15", colorDark: "#3498db" },
     { position: [4, -2, -1], scale: 0.8, speedFactor: 0.8, offset: 2, colorLight: "#f43f5e", colorDark: "#9b59b6" },
     { position: [-5, -2, -3], scale: 0.5, speedFactor: 1.5, offset: 4, colorLight: "#fb923c", colorDark: "#1abc9c" },

@@ -3,7 +3,8 @@
 import React from "react";
 import { Typography, Row, Col, Card, Tag } from "antd";
 import { motion } from "motion/react";
-import styles from "./About.module.scss";
+import { useLanguage } from "@/components/LanguageContext";
+import styles from "@/styles/About.module.scss";
 
 const { Title, Paragraph } = Typography;
 
@@ -12,6 +13,8 @@ const skills = [
 ];
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className={styles.aboutSection}>
       <div className={styles.container}>
@@ -22,25 +25,21 @@ export default function About() {
           transition={{ duration: 0.8 }}
         >
           <Title level={2} className={styles.sectionTitle}>
-            Обо мне
+            {t("about", "title")}
           </Title>
           <Row gutter={[32, 32]} align="stretch">
             <Col xs={24} md={12} style={{ display: 'flex' }}>
               <Card className={styles.aboutCard} variant="borderless" style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                 <Paragraph className={styles.text}>
-                  Привет! Я Fullstack разработчик, специализирующийся на создании современных,
-                  масштабируемых и интерактивных веб-приложений. Я создаю надежные серверные решения и
-                  уделяю особое внимание UX/UI и производительности на стороне клиента.
+                  {t("about", "p1")}
                 </Paragraph>
                 <Paragraph className={styles.text} style={{ flexGrow: 1 }}>
-                  Мой основной стек — экосистема React (включая Next.js) в связке с TypeScript, Node.js и базами данных.
-                  Я использую лучшие инженерные практики при разработке API и люблю экспериментировать
-                  с 3D-графикой для WOW-эффекта на фронтенде.
+                  {t("about", "p2")}
                 </Paragraph>
               </Card>
             </Col>
             <Col xs={24} md={12} style={{ display: 'flex' }}>
-              <Card title={<span style={{color: 'var(--foreground)'}}>Мои Навыки</span>} className={styles.skillsCard} variant="borderless" style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+              <Card title={<span style={{color: 'var(--foreground)'}}>{t("about", "skillsTitle")}</span>} className={styles.skillsCard} variant="borderless" style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                 <div className={styles.tagsContainer}>
                   {skills.map((skill) => (
                     <Tag key={skill} color="cyan" className={styles.tag}>

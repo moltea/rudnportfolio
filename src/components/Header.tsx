@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import styles from "./Header.module.scss";
+import { useLanguage } from "@/components/LanguageContext";
+import styles from "@/styles/Header.module.scss";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,9 +30,9 @@ export default function Header() {
           MOLTEA
         </a>
         <nav className={styles.nav}>
-          <a href="#about" className={styles.navLink}>Обо мне</a>
-          <a href="#projects" className={styles.navLink}>Проекты</a>
-          <a href="#contact" className={styles.navLink}>Контакты</a>
+          <a href="#about" className={styles.navLink}>{t("nav", "about")}</a>
+          <a href="#projects" className={styles.navLink}>{t("nav", "projects")}</a>
+          <a href="#contact" className={styles.navLink}>{t("nav", "contact")}</a>
         </nav>
       </div>
     </motion.header>
